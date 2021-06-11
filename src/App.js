@@ -1,23 +1,24 @@
 
 import './App.css';
-import Header from './components/Header';
-import Nav from './components/Nav';
-import Row from './components/Row';
-
+import Home from './components/home/Home';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from 'react-router-dom';
+import Login from './components/login/Login';
 function App() {
   return (
-    <div className="app">
-      <Nav />
-      <Header />
-      <Row title="Netflix Originals" type="netflix-originals" />
-      <Row title='Netflix Originals' movieType='netflix-originals' />
-      <Row title='Trending Now' movieType='trending-now' />
-      <Row title='Top Rated' movieType='top-rated' />
-      <Row title='Action Movies' movieType='action-movies' />
-      <Row title='Horror Movies' movieType='horror-movies' />
-      <Row title='Romance Movies' movieType='romance-movies' />
-      <Row title='Documentaries Movies' movieType='documentaries-movies' />
-    </div>
+    <Router>
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route exact path="/login">
+          <Login />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 
